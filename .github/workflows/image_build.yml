@@ -16,9 +16,9 @@ jobs:
       - name: Hello
         run: echo $GITHUB_RUN_NUMBER
       - name: Run Makefile
-        env:
-            DOCKER_USERNAME: ${{ env.DOCKER_USERNAME }}
-            DOCKER_PASSWORD: ${{ env.DOCKER_PASSWORD }}
+        # env:
+        #     DOCKER_USERNAME: ${{ env.DOCKER_USERNAME }}
+        #     DOCKER_PASSWORD: ${{ env.DOCKER_PASSWORD }}
         run: |
           make docker publish DOCKER_USERNAME=${{env.DOCKER_USERNAME}} DOCKER_PASSWORD=${{env.DOCKER_PASSWORD}} BUILD_NUMBER=$GITHUB_RUN_NUMBER
       - run: echo "🍏 This job's status is ${{ job.status }}."
