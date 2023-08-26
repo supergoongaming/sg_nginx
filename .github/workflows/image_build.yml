@@ -1,0 +1,17 @@
+name: Push to Docker hub
+run-name: "Push to docker hub: ${{ github.actor }} 🚀"
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  Build-Linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Run Makefile
+        run: |
+          make docker publish DOCKER_LOGIN_USERNAME=$DOCKER_USERNAME DOCKER_LOGIN_PASSWORD=$DOCKER_PASSWORD BUILD_NUMBER=$GITHUB_RUN_NUMBER
+      - run: echo "🍏 This job's status is ${{ job.status }}."
