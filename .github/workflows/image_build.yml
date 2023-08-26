@@ -8,17 +8,12 @@ on:
 jobs:
   Build-Linux:
     runs-on: ubuntu-latest
-    # env:
-    #   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: Hello
-        run: echo $GITHUB_RUN_NUMBER
-      - name: Run Makefile
-        # env:
-        #     DOCKER_USERNAME: ${{ env.DOCKER_USERNAME }}
-        #     DOCKER_PASSWORD: ${{ env.DOCKER_PASSWORD }}
-        run: |
-          make docker publish DOCKER_USERNAME=${{vars.DOCKER_USERNAME}} DOCKER_PASSWORD=${{vars.DOCKER_PASSWORD}} BUILD_NUMBER=$GITHUB_RUN_NUMBER
+      - name: Trigger Docker Workflow
+        uses: supergoongaming/sharedWorkflows/.github/workflows/image_build
+        with:
+          IMAGE_NAME: enf3rno/sg_nginx:$GITHUB_RUN_NUMBER
+          DOCKERFILE_LOCATION: ./Dockerfile
       - run: echo "🍏 This job's status is ${{ job.status }}."
