@@ -10,8 +10,8 @@ jobs:
     # runs-on: ubuntu-latest
     uses: supergoongaming/sharedWorkflows/.github/workflows/image_build.yml@master
     with:
-      IMAGE_NAME: enf3rno/sg_nginx:$GITHUB_RUN_NUMBER
-      DOCKERFILE_LOCATION: ./Dockerfile
+      image_name: enf3rno/sg_nginx:$GITHUB_RUN_NUMBER
+      dockerfile_location: ./Dockerfile
     # steps:
     #   - name: Check out repository code
     #     uses: actions/checkout@v3
