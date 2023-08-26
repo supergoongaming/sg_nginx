@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+      - name: Hello
+        run: echo $GITHUB_RUN_NUMBER
       - name: Run Makefile
         run: |
           make docker publish DOCKER_LOGIN_USERNAME=$DOCKER_USERNAME DOCKER_LOGIN_PASSWORD=$DOCKER_PASSWORD BUILD_NUMBER=$GITHUB_RUN_NUMBER
