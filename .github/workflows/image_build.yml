@@ -7,13 +7,13 @@ on:
     branches: [master]
 jobs:
   Build-Linux:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v3
-      - name: Trigger Docker Workflow
-        uses: supergoongaming/sharedWorkflows/.github/workflows/image_build.yml@master
-        with:
-          IMAGE_NAME: enf3rno/sg_nginx:$GITHUB_RUN_NUMBER
-          DOCKERFILE_LOCATION: ./Dockerfile
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+    # runs-on: ubuntu-latest
+    uses: supergoongaming/sharedWorkflows/.github/workflows/image_build.yml@master
+    with:
+      IMAGE_NAME: enf3rno/sg_nginx:$GITHUB_RUN_NUMBER
+      DOCKERFILE_LOCATION: ./Dockerfile
+    # steps:
+    #   - name: Check out repository code
+    #     uses: actions/checkout@v3
+    #   - name: Trigger Docker Workflow
+    #   - run: echo "🍏 This job's status is ${{ job.status }}."
