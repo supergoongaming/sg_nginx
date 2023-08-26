@@ -11,7 +11,7 @@ jobs:
     uses: supergoongaming/sharedWorkflows/.github/workflows/image_build.yml@master
     with:
       image_name: enf3rno/sg_nginx
-      build_number: $GITHUB_RUN_NUMBER
+      build_number: ${{ github.run_number }}
       dockerfile_location: ./Dockerfile
     # steps:
     #   - name: Check out repository code
