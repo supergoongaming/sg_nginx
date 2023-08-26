@@ -13,6 +13,8 @@ jobs:
       image_name: enf3rno/sg_nginx
       build_number: ${{ github.run_number }}
       dockerfile_location: ./Dockerfile
+    secrets: inherit
+
     # steps:
     #   - name: Check out repository code
     #     uses: actions/checkout@v3
