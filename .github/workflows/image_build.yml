@@ -8,6 +8,8 @@ on:
 jobs:
   Build-Linux:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
