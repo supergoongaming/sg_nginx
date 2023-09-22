@@ -7,6 +7,7 @@ RUN chmod +x /tmp/enable_sites.sh && /tmp/enable_sites.sh
 COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY scripts/restart_nginx.sh /usr/local/bin/restart_nginx.sh
 RUN chmod +x /usr/local/bin/restart_nginx.sh
-RUN apk add --no-cache dcron
+# RUN apk add --no-cache dcron
+RUN apt install dcron
 RUN echo "0 0 * * * /usr/local/bin/restart_nginx.sh" >> /etc/crontabs/root
 CMD ["crond", "-f"]
