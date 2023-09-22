@@ -1,4 +1,5 @@
-FROM nginx:1.24-alpine
+# FROM nginx:1.24-alpine
+FROM nginx:stable
 COPY sites_available/ /etc/nginx/sites_available
 RUN mkdir -p /etc/nginx/sites_enabled
 COPY scripts/enable_sites.sh /tmp/enable_sites.sh
