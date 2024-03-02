@@ -7,5 +7,7 @@ COPY scripts/enable_sites.sh /tmp/enable_sites.sh
 RUN chmod +x /tmp/enable_sites.sh && /tmp/enable_sites.sh
 COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY scripts/restart_nginx.sh $script_location
+COPY scripts/startup.sh /usr/local/bin/startup.sh
 RUN chmod +x /etc/periodic/ $script_location
-RUN crond
+RUN chmod +x /usr/local/bin/startup.sh
+CMD ["/usr/local/bin/startup.sh"]
