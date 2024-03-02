@@ -1,6 +1,6 @@
 FROM nginx:1.24-alpine
 
-ARG script_location=/etc/periodic/15min/restart_nginx
+ARG script_location=/etc/periodic/daily/restart_nginx
 COPY sites_available/ /etc/nginx/sites_available
 RUN mkdir -p /etc/nginx/sites_enabled
 COPY scripts/enable_sites.sh /tmp/enable_sites.sh
