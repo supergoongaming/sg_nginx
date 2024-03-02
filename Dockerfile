@@ -8,4 +8,4 @@ RUN chmod +x /tmp/enable_sites.sh && /tmp/enable_sites.sh
 COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY scripts/restart_nginx.sh $script_location
 RUN chmod +x /etc/periodic/ $script_location
-RUN dcron
+RUN crond
